@@ -10,31 +10,12 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 class SampleComponent extends Component {
 
   render() {
-    const data = this.props.test[0];
+    const data = this.props.test.data;
     if(data) {
-      console.log(data)
+      console.log(data.topalbums)
       return (
         <Card>
-         <Image src={data.image[2]['#text']} />
-         <Card.Content>
-           <Card.Header>
-             {data.name}
-           </Card.Header>
-           <Card.Meta>
-             <span className='date'>
-               {data.artist}
-             </span>
-           </Card.Meta>
-           <Card.Description>
-             album description
-           </Card.Description>
-         </Card.Content>
-         <Card.Content extra>
-           <a>
-             <Icon name='music' />
-             add track number
-           </a>
-         </Card.Content>
+
        </Card>
       );
     }

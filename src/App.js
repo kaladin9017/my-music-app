@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+
 import {
     Header,
+    Container,
 } from "semantic-ui-react";
 
-
-
-import SampleComponent from "./components/SampleComponent";
+import InvertedHeader from './components/common/Header';
+import AlbumSearchComponent from './components/AlbumSearch/AlbumSearchComponent';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Welcome to My Songs</h2>
-        </div>
-        <SampleComponent />
+        <InvertedHeader />
+          <AlbumSearchComponent/>
       </div>
     );
   }

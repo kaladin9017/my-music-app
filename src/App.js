@@ -8,14 +8,13 @@ import {
 } from "semantic-ui-react";
 
 import InvertedHeader from './components/common/Header';
-import AlbumSearchComponent from './components/AlbumSearch/AlbumSearchComponent';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <InvertedHeader />
-          <AlbumSearchComponent/>
+          {this.props.children}
       </div>
     );
   }

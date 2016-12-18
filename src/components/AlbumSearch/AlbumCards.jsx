@@ -5,7 +5,6 @@ import {Card, Icon, Image} from 'semantic-ui-react';
 
 const AlbumCards = (props) => {
   let data = props.data
-  console.log(data)
   return (
     <Card>
      <Image src={data.image[3]['#text']} />

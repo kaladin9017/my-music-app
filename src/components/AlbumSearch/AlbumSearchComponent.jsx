@@ -18,7 +18,9 @@ class SampleComponent extends Component {
 
 
   render() {
+
     const data = this.props.test.data;
+
     if(data) {
       let albums = data.topalbums.album
       const cardList =[]
@@ -26,9 +28,12 @@ class SampleComponent extends Component {
         cardList.push(<AlbumCards data={albums[i]}/>)
       }
       return (
+        <div>
         <Card.Group itemsPerRow={3}>
           {cardList}
         </Card.Group>
+        <form><input type='text' id="artistName" placeholder='Enter Artist'/><button onClick={this.clickButton.bind(this)}>click</button></form>
+      </div>
       );
     }
     else return(<form><input type='text' id="artistName" placeholder='Enter Artist'/><button onClick={this.clickButton.bind(this)}>click</button></form>)

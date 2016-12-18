@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {fetchAlbum} from '../../actions/index'
+import {fetchAlbum, fetchFeaturedTracks} from '../../actions/index'
 
 import { Card, Icon, Image } from 'semantic-ui-react'
 import AlbumCards from './AlbumCards';
 
-class SampleComponent extends Component {
+class AlbumSearchComponent extends Component {
 
   clickButton(e) {
     e.preventDefault()
@@ -39,10 +39,14 @@ class SampleComponent extends Component {
     else return(<form><input type='text' id="artistName" placeholder='Enter Artist'/><button onClick={this.clickButton.bind(this)}>click</button></form>)
     }
 
+    componentDidMount() {
+
+    }
+
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators ({ fetchAlbum }, dispatch)
+  return bindActionCreators ({ fetchAlbum, fetchFeaturedTracks }, dispatch)
 }
 
 function mapStateToProps({ test }) {
@@ -51,4 +55,4 @@ function mapStateToProps({ test }) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SampleComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(AlbumSearchComponent);

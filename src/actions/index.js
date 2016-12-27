@@ -9,7 +9,7 @@ const usr ="kaladin9017"
 
 export function fetchAlbum (artist) {
   artist= artist.split(' ').join('+')
-  const url = `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`;
+  const url = `https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${artist}&api_key=${API_KEY}&format=json`;
 
   const request = axios.get(url)
 
@@ -20,7 +20,7 @@ export function fetchAlbum (artist) {
 }
 
 export function fetchFeaturedTracks () {
-  const url = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${usr}&api_key=${API_KEY}&format=json`;
+  const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${usr}&api_key=${API_KEY}&format=json`;
 
   const request = axios.get(url)
 

@@ -23,15 +23,17 @@ class App extends Component {
         <Sidebar.Pushable as={Segment}>
           <Sidebar as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Link to='/'>
-            <Menu.Item name='home'>
-              <Icon name='home' />
-              Home
-            </Menu.Item>
+              <Menu.Item name='home'>
+                <Icon name='home' />
+                LastFM
+              </Menu.Item>
+            </Link>
+            <Link to="soundcloud">
+              <Menu.Item name='playlist'>
+                <Icon name='music' />
+                SoundCloud
+              </Menu.Item>
           </Link>
-            <Menu.Item name='playlist'>
-              <Icon name='music' />
-              Playlists
-            </Menu.Item>
             <Menu.Item name='friends'>
               <Icon name='user' />
               Friends

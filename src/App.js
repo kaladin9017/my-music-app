@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router'
-
+import {Link} from 'react-router';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {addSong} from './actions/index';
+import PlaylistModals from './components/playlist/PlaylistModals';
 
 // import logo from './logo.svg';
 import './App.css';
 
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Container } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Container, Modal } from 'semantic-ui-react'
 
 import InvertedHeader from './components/common/Header'; //Header Component
 
 class App extends Component {
-  state = { visible: false }
+  state = { visible: false, openOrClose: false }
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
+  toggleOpenCloseModal = () => this.setState({ openOrClose: !this.state.openOrClose })
 
   render() {
     const { visible } = this.state
-
+    const { openOrClose } = this.state
     return (
       <div className="App">
         <Button onClick={this.toggleVisibility}>Menu</Button>
@@ -34,12 +38,17 @@ class App extends Component {
                 SoundCloud
               </Menu.Item>
           </Link>
-            <Menu.Item name='friends'>
-              <Icon name='user' />
-              Friends
-            </Menu.Item>
+            <Menu.Item name='playlist'>
+              <Icon name='music'/>
+              <span onClick={this.toggleOpenCloseModal} >
+                Playlists
+              </span>
+                <PlaylistModals data={this.props.playlists} openOrClose={this.state.openOrClose} toggle={this.toggleOpenCloseModal.bind(this)}/>
+
+
+          </Menu.Item>
             <Link to='album'>
-            <Menu.Item name='albumsearch'>
+            <Menu.Item name='albumsearch' >
               <Icon name='music' />
               Album Search
             </Menu.Item>
@@ -56,4 +65,15 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addSong }, dispatch)
+}
+
+function mapStateToProps({ playlists }) {
+  return {
+    playlists
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

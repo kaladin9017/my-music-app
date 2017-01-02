@@ -27,7 +27,6 @@ class CreatePlaylistComponent extends Component {
   }
 
   render() {
-    console.log("Playlist", this.props.playlists)
     const { formData, value } = this.state
     return (
       <Form onSubmit={this.handleSubmit}>

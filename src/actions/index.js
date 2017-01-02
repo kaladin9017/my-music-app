@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_ALBUM = "FETCH_ALBUM"
 export const FETCH_FEATURED_TRACKS = "FETCH_FEATURED_TRACKS";
+export const CREATE_PLAYLIST = "CREATE_PLAYLIST";
 
 const API_KEY = '114fa2b39c2f07b3041f7432b6181566';
 const usr ="kaladin9017"
@@ -27,5 +28,13 @@ export function fetchFeaturedTracks () {
   return {
     type: FETCH_FEATURED_TRACKS,
     payload: request
+  }
+}
+
+export function createPlaylist (playlist) {
+
+  return {
+    type: CREATE_PLAYLIST,
+    payload: playlist
   }
 }
